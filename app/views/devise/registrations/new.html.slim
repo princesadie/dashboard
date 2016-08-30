@@ -1,0 +1,61 @@
+.container.form-container
+  .row
+    .logoContainer
+      = image_tag "logo/simpolLogoGrayscale.png", width: "300"
+    .row.welcome
+      h1 Well, hello there!
+      p We're so glad you're ready to join Simpol. This should only take a few minutes.
+      p Let's start with creating your account.
+  .row.form
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      .row.errors
+        = devise_error_messages!
+      .row
+        h1 ACCOUNT INFO
+        .col-md-6
+          .row
+            = f.text_field :username, placeholder: "USERNAME", autofocus: true
+          .row
+            = f.email_field :email, placeholder: "EMAIL"
+        .col-md-6
+          .row.full-width
+            = f.password_field :password, placeholder: "PASSWORD", autocomplete: "off"
+          .row.full-width
+            = f.password_field :password_confirmation, placeholder: "CONFIRM PASSWORD", autocomplete: "off"
+      br
+      .row
+        h1 PERSONAL INFO
+        .col-md-6
+          .row
+            = f.text_field :first_name, placeholder: "FIRST NAME"
+        .col-md-6
+          .row.full-width
+            = f.text_field :last_name, placeholder: "LAST NAME"
+      .row
+        .col-md-12
+          .row
+            = f.text_field :address, placeholder: "ADDRESS", style: "width: 100%;"
+          .row
+            = f.text_field :address_2, placeholder: "ADDRESS 2 (OPTIONAL)", style: "width: 100%;"
+      .row
+        .col-md-6
+          .row
+            = f.text_field :city, placeholder: "CITY"
+          .row
+            = f.text_field :zipcode, placeholder: "ZIPCODE"
+        .col-md-6
+          .row
+            = f.select :state, options_for_select(us_states)
+          .row
+            = f.date_field :birthday, style: "width: 100%;text-transform: uppercase;"
+      .row
+        .col-md-12
+          .row
+            = f.text_field :phone_1, placeholder: "PHONE NUMBER", style: "width: 100%;"
+      .row
+        .actions
+          = link_to "LOGIN", new_user_session_path, class: "btn btn-outline-secondary"
+          = f.submit "SIGN UP", class: "btn btn-primary pull-right"
+
+javascript:
+  $("#mainNav").remove();

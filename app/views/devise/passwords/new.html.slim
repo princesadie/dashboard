@@ -1,0 +1,25 @@
+.container.form-container
+  .row
+    .logoContainer
+      = image_tag "logo/simpolLogoGrayscale.png", width: "300"
+    .row.welcome
+      h1 Forgot your password?
+      p No problem! Fill in your email below and we'll send you reset instructions.
+  .row.form
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+      .row.errors
+        = devise_error_messages!
+      .row
+        h1 RESET PASSWORD
+      .row
+        = f.email_field :email, placeholder: "EMAIL", autofocus: true, style: "width: 100%"
+      .row
+        .actions
+          = f.submit "RESET PASSWORD", class: "btn btn-primary", style: "width: 100%;"
+      .row
+        .actions
+          = link_to "LOG IN", new_user_session_path, class: "btn btn-outline-secondary"
+          = link_to "SIGN UP", new_user_registration_path, class: "btn btn-outline-secondary pull-right", style: "width: 50%;"
+
+javascript:
+  $("#mainNav").remove();

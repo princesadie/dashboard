@@ -1,0 +1,27 @@
+.container.form-container
+  .row
+    .logoContainer
+      = image_tag "logo/simpolLogoGrayscale.png", width: "300"
+    .row.welcome
+      h1 Hi there!
+      p We're glad to see you! Please sign in below.
+  .row.form
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .row
+        h1 LOGIN
+        .col-md-6
+          .row
+            = f.email_field :email, placeholder: "EMAIL"
+        .col-md-6
+          .row.full-width
+            = f.password_field :password, placeholder: "PASSWORD", autocomplete: "off"
+      .row
+        .actions
+          = f.submit "SIGN IN", class: "btn btn-primary", style: "width: 100%;"
+      .row
+        .actions
+          = link_to "SIGN UP", new_user_registration_path, class: "btn btn-outline-secondary"
+          = link_to "FORGOT PASSWORD", new_user_password_path, class: "btn btn-outline-secondary pull-right", style: "width: 50%;"
+
+javascript:
+  $("#mainNav").remove();

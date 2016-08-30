@@ -1,0 +1,36 @@
+.navbar.navbar-default {
+	background-color: #FFF;
+	border-color: none;
+	border: none;
+	ul {
+		li {
+			a {
+				color: $simpol-main-color;
+			}
+		}
+	}
+}
+
+.navbar-default .navbar-brand {
+	font-family: 'oneday';
+	color: $simpol-main-color;
+	letter-spacing: 1.5px;
+	margin-left: 1em;
+	margin-top: -16px;
+}
+
+.navbar-default .navbar-toggle {
+	background-color: $simpol-main-color;
+	color: #FFF;
+	border: none;
+	border-radius: 0;
+	width: 100px;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: $simpol-main-color;
+}
+
+.nav.navbar-nav.navbar-right {
+	margin-right: 2em;
+}
