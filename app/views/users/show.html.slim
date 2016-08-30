@@ -1,1 +1,8 @@
-h1 TEST
+.header
+section#user
+  .container
+    .row.text-center
+      .intro-text
+        h1
+          = @user.username
+        = link_to "EDIT USERNAME", edit_user_registration_path

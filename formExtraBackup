@@ -1,0 +1,48 @@
+br
+.row
+  h1 PERSONAL INFO
+  .col-md-6
+    .row
+      = f.label :first_name
+    .row
+      = f.text_field :first_name, placeholder: "e.g. Joe"
+  .col-md-6.full-length
+    .row
+      = f.label :last_name
+    .row.full-width
+      = f.text_field :last_name, placeholder: "e.g. Simpol"
+  .col-md-12.full-length
+    .row
+      = f.label :address
+    .row.full-width
+      = f.text_field :address, placeholder: "e.g. 123 N Simpol St"
+    .row
+      = f.label :address_2
+      - if @minimum_password_length
+        em
+          |  (OPTIONAL)
+    .row.full-width
+      = f.text_field :address_2, placeholder: "e.g. APT 21"
+  .col-md-6
+    .row
+      = f.label :city
+    .row
+      = f.text_field :city, placeholder: "e.g. San Francisco"
+    .row
+      = f.label :zipcode
+    .row
+      = f.text_field :zipcode, placeholder: "e.g. 60188"
+  .col-md-6.full-length
+    .row
+      = f.label :state
+    .row
+      = f.select :state, options_for_select(us_states)
+    .row
+      = f.label :phone
+    .row.full-width
+      = f.text_field :phone_1, placeholder: "e.g. 123-456-7890"
+  .col-md-12
+    .row
+      = f.label :date_of_birth
+    .row.full-width
+      = f.date_field :birthday
