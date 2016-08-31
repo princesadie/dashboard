@@ -1,6 +1,7 @@
 module RegistrationHelper
   def us_states
     [
+      ["CHOOSE STATE", ""],
       ["ALABAMA", "AL"],
       ["ALASKA", "AK"],
       ["ARIZONA", "AZ"],
