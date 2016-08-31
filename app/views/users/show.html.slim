@@ -1,8 +1,16 @@
 .header
 section#user
   .container
+    .row.properties-container
+      .property-card
+        .header
+        .img
+          = image_tag "background/dashboard.jpg"
+        .content
+          h1 PROPERTY NAME
+          p NUMBER OF UNITS
+          p DESCRIPTION
+        .footer
     .row.text-center
       .intro-text
-        h1
-          = @user.username
-        = link_to "EDIT USERNAME", edit_user_registration_path
+        = link_to "EDIT USERNAME", edit_user_registration_path, class: "btn btn-primary"

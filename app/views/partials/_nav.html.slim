@@ -4,30 +4,29 @@ nav#mainNav.navbar.navbar-default.navbar-custom.navbar-fixed-top
       span.sr-only Toggle navigation
       | MENU
       i.fa.fa-bars
-    a.navbar-brand.page-scroll href="#page-top" = image_tag "logo/simpolLogo.png", width: "150"
+    a.navbar-brand.page-scroll href="/" = image_tag "logo/simpolLogo.png", width: "150"
   #bs-example-navbar-collapse-1.collapse.navbar-collapse
     ul.nav.navbar-nav.navbar-right
       li.hidden
         a href="#page-top"
       - if current_user
         li
-          = current_user.email
-      li
-        a.page-scroll href="#services"  SERVICES
-      li
-        a.page-scroll href="#portfolio"  FEATURES
-      li
-        a.page-scroll href="#about"  BLOG
-      li
-        a.page-scroll href="#team"  TEAM
-      - if !current_user
+          = link_to current_user.username, user_path(current_user)
+        li
+          = link_to "SIGN OUT", destroy_user_session_path, method: :delete
+      - else
+        li
+          a.page-scroll href="#services"  SERVICES
+        li
+          a.page-scroll href="#portfolio"  FEATURES
+        li
+          a.page-scroll href="#about"  BLOG
+        li
+          a.page-scroll href="#team"  TEAM
         li
           = link_to "SIGN IN", new_user_session_path
         li
           = link_to "GET SIMPOL", new_user_registration_path, class: "btn btn-primary call-out"
-      - else
-        li
-          = link_to "SIGN OUT", destroy_user_session_path, method: :delete
 
 javascript:
   var nav = $('#mainNav'); // Change to nav div
