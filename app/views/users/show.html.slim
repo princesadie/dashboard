@@ -1,16 +1,25 @@
 .header
 section#user
   .container
+    .row
+      .col-md-4
+        .profile-image
     .row.properties-container
-      .property-card
-        .header
-        .img
-          = image_tag "background/dashboard.jpg"
-        .content
-          h1 PROPERTY NAME
-          p NUMBER OF UNITS
-          p DESCRIPTION
-        .footer
+      - current_user.properties.each do |property|
+        .property-card
+          .header
+          .img
+            = image_tag "background/dashboard.jpg"
+          .content
+            h1
+              = property.name
+            p NUMBER OF UNITS
+            p DESCRIPTION
+          .footer
+            = link_to "MANAGE", "/", class: "btn btn-primary"
+    .row.text-center
+      .intro-text
+        = link_to "CREATE PROPERTY", new_property_path, class: "btn btn-primary"
     .row.text-center
       .intro-text
         = link_to "EDIT USERNAME", edit_user_registration_path, class: "btn btn-primary"

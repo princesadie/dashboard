@@ -94,6 +94,7 @@
     width: 50%;
     margin-right: 0;
     color: #FFFFFF;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   }
   .actions input:hover {
     background-color: #FFFFFF;
@@ -109,6 +110,7 @@
     line-height: 35px;
     color: $simpol-light-gray;
     width: 47.5%;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   }
   .btn-outline-secondary:hover {
     background-color: $simpol-light-gray;

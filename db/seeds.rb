@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+User.first.properties.create(
+  name: "Milwaukee Apartments",
+  address: "245 N Madison St",
+  address_2: "",
+  city: "Chicago",
+  state: "IL",
+  zipcode: "60606"
+)
