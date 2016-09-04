@@ -1,0 +1,56 @@
+.container.form-container
+  .row
+    .row.welcome
+      h1 Edit Account Information
+      p Make any changes to your account.
+      p Contact us if you have any questions!
+  .row.form
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+      .row.errors
+        = devise_error_messages!
+      .row
+        h1 ACCOUNT INFO
+        .col-md-12
+          .row.full-width
+            = f.email_field :email, placeholder: "EMAIL"
+      .row
+        .col-md-12
+          .row.full-width
+            = f.password_field :password, placeholder: "PASSWORD", autocomplete: "off"
+          .row.full-width
+            = f.password_field :password_confirmation, placeholder: "CONFIRM PASSWORD", autocomplete: "off"
+          .row.full-width
+            = f.password_field :current_password, placeholder: "CURRENT PASSWORD", autocomplete: "off"
+      br
+      .row
+        h1 PERSONAL INFO
+        .col-md-6
+          .row
+            = f.text_field :first_name, placeholder: "FIRST NAME"
+        .col-md-6
+          .row.full-width
+            = f.text_field :last_name, placeholder: "LAST NAME"
+      .row
+        .col-md-12
+          .row
+            = f.text_field :address, placeholder: "ADDRESS", style: "width: 100%;"
+          .row
+            = f.text_field :address_2, placeholder: "ADDRESS 2 (OPTIONAL)", style: "width: 100%;"
+      .row
+        .col-md-6
+          .row
+            = f.text_field :city, placeholder: "CITY"
+          .row
+            = f.text_field :zipcode, placeholder: "ZIPCODE"
+        .col-md-6
+          .row
+            = f.select :state, options_for_select(us_states)
+          .row
+            = f.date_field :birthday, placeholder: "BIRTHDAY", style: "width: 100%;text-transform: uppercase;"
+      .row
+        .col-md-12
+          .row
+            = f.text_field :phone_1, placeholder: "PHONE NUMBER", style: "width: 100%;"
+      .row
+        .actions
+          = f.submit "UPDATE", class: "btn btn-primary pull-right", style: "width: 100%;"

@@ -1,0 +1,40 @@
+.container.form-container
+  .row
+    .logoContainer
+      = image_tag "logo/simpolLogoGrayscale.png", width: "300"
+    .row.welcome
+      h1 Create your property
+      p Please fill out the form below to create your property
+  .row.form
+    = form_for @property do |f|
+      .row
+        h1 PROPERTY
+        .col-md-12
+          .row.full-width
+            = f.text_field :name, placeholder: "NAME", autofocus: true
+      .row
+        .col-md-12
+          .row.full-width
+            = f.text_field :address, placeholder: "ADDRESS"
+      .row
+        .col-md-12
+          .row.full-width
+            = f.text_field :address_2, placeholder: "ADDRESS 2 (OPTIONAL)"
+      .row
+        .col-md-12
+          .row.full-width
+            = f.text_field :city, placeholder: "CITY"
+      .row
+        .col-md-12
+          .row.full-width
+            = f.select :state, options_for_select(us_states)
+      .row
+        .col-md-12
+          .row.full-width
+            = f.text_field :zipcode, placeholder: "ZIPCODE"
+      .row
+        .actions
+          = f.submit "CREATE", class: "btn btn-primary", style: "width: 100%;"
+
+javascript:
+  $("#mainNav").remove();
