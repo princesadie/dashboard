@@ -53,6 +53,10 @@
           .row
             = f.text_field :phone_1, placeholder: "PHONE NUMBER", style: "width: 100%;"
       .row
+        .col-md-12
+          .row.full-width
+            = f.file_field :avatar
+      .row
         .actions
           = link_to "LOGIN", new_user_session_path, class: "btn btn-outline-secondary"
           = f.submit "SIGN UP", class: "btn btn-primary pull-right"

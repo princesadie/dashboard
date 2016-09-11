@@ -16,6 +16,7 @@ gem 'slim-rails'
 gem 'faker'
 gem 'json'
 gem 'devise'
+gem "paperclip", "~> 5.0.0"
 
 group :development, :test do
   gem 'byebug'

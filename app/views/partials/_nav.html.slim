@@ -1,20 +1,31 @@
-nav#mainNav.navbar.navbar-default.navbar-custom.navbar-fixed-top
-  .navbar-header.page-scroll
-    button.navbar-toggle data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"
-      span.sr-only Toggle navigation
-      | MENU
-      i.fa.fa-bars
-    a.navbar-brand.page-scroll href="/" = image_tag "logo/simpolLogo.png", width: "150"
-  #bs-example-navbar-collapse-1.collapse.navbar-collapse
-    ul.nav.navbar-nav.navbar-right
-      li.hidden
-        a href="#page-top"
-      - if current_user
+- if current_user
+  nav#mainNav.signed-in.navbar.navbar-default.navbar-custom.navbar-fixed-top
+    .navbar-header.page-scroll
+      button.navbar-toggle data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"
+        span.sr-only Toggle navigation
+        | MENU
+        i.fa.fa-bars
+      a.navbar-brand.page-scroll href="/" = image_tag "logo/simpolLogo.png", width: "150"
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-right
+        li.hidden
+          a href="#page-top"
         li
           = link_to current_user.username, user_path(current_user)
         li
           = link_to "SIGN OUT", destroy_user_session_path, method: :delete
-      - else
+- else
+  nav#mainNav.navbar.navbar-default.navbar-custom.navbar-fixed-top
+    .navbar-header.page-scroll
+      button.navbar-toggle data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"
+        span.sr-only Toggle navigation
+        | MENU
+        i.fa.fa-bars
+      a.navbar-brand.page-scroll href="/" = image_tag "logo/simpolLogo.png", width: "150"
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-right
+        li.hidden
+          a href="#page-top"
         li
           a.page-scroll href="#services"  SERVICES
         li
@@ -28,18 +39,18 @@ nav#mainNav.navbar.navbar-default.navbar-custom.navbar-fixed-top
         li
           = link_to "GET SIMPOL", new_user_registration_path, class: "btn btn-primary call-out"
 
-javascript:
-  var nav = $('#mainNav'); // Change to nav div
-  var nav_class = 'scroll-nav'; // Change to class name
-  var threshold = 50; // Change to pixels scrolled
+  javascript:
+    var nav = $('#mainNav'); // Change to nav div
+    var nav_class = 'scroll-nav'; // Change to class name
+    var threshold = 50; // Change to pixels scrolled
 
-  $(window).scroll(function () {
-      var distance = $(this).scrollTop();
-      if (distance > threshold) { // If scrolled past threshold
-          nav.addClass(nav_class); // Add class to nav
-      } else { // If user scrolls back to top
-          if (nav.hasClass(nav_class)) { // And if class has been added
-              nav.removeClass(nav_class); // Remove it
-          }
-      }
-  });
+    $(window).scroll(function () {
+        var distance = $(this).scrollTop();
+        if (distance > threshold) { // If scrolled past threshold
+            nav.addClass(nav_class); // Add class to nav
+        } else { // If user scrolls back to top
+            if (nav.hasClass(nav_class)) { // And if class has been added
+                nav.removeClass(nav_class); // Remove it
+            }
+        }
+    });
