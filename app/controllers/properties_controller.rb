@@ -4,8 +4,7 @@ class PropertiesController < ApplicationController
   end
 
   def create
-    @user = current_user
-    @property = @user.properties.build
+    @property = current_user.properties.build(property_params)
 
     if @property.save
       redirect_to @property, notice: 'Property was successfully created.'
@@ -27,7 +26,8 @@ class PropertiesController < ApplicationController
       :address_2,
       :city,
       :state,
-      :zipcode
+      :zipcode,
+      :main_image
     )
   end
 end

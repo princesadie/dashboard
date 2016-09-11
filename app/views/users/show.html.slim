@@ -25,14 +25,14 @@ section#user
         .property-card
           .header
           .img
-            = image_tag "background/dashboard.jpg"
+            = image_tag property.main_image
           .content
             h1
               = property.name
             p NUMBER OF UNITS
             p DESCRIPTION
           .footer
-            = link_to "MANAGE", "/", class: "btn btn-primary"
+            = link_to "MANAGE", property_path(property), class: "btn btn-primary"
     .row.text-center
       .intro-text
         = link_to "CREATE PROPERTY", new_property_path, class: "btn btn-primary"

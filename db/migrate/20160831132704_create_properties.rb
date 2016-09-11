@@ -8,6 +8,7 @@ class CreateProperties < ActiveRecord::Migration
       t.string :state
       t.integer :zipcode
       t.references :user, index: true, foreign_key: true
+      t.attachment :main_image
 
       t.timestamps null: false
     end
