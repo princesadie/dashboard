@@ -1,9 +1,25 @@
-.header
 section#user
+  .row
+    .col-md-12
+      .background-banner
   .container
     .row
-      .col-md-4
-        .profile-image
+      .col-md-3.no-padding
+        .profile-container
+          .profile-image
+            = image_tag @user.avatar.url(:medium)
+          .profile-image-content
+          .row.text-center
+            .intro-text
+              = link_to "EDIT PROFILE", edit_user_registration_path, class: "btn btn-primary"
+      .col-md-9
+        .notification-container
+          .notification-header
+            h1 Notifications
+          .notification-content
+            ul
+              li Notification One
+              li Notification Two
     .row.properties-container
       - current_user.properties.each do |property|
         .property-card
@@ -20,6 +36,3 @@ section#user
     .row.text-center
       .intro-text
         = link_to "CREATE PROPERTY", new_property_path, class: "btn btn-primary"
-    .row.text-center
-      .intro-text
-        = link_to "EDIT USERNAME", edit_user_registration_path, class: "btn btn-primary"

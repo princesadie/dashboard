@@ -16,7 +16,8 @@ class RegistrationsController < Devise::RegistrationsController
       :state,
       :zipcode,
       :phone_1,
-      :birthday
+      :birthday,
+      :avatar
     )
   end
 
@@ -35,7 +36,8 @@ class RegistrationsController < Devise::RegistrationsController
       :state,
       :zipcode,
       :phone_1,
-      :birthday
+      :birthday,
+      :avatar
     )
   end
 end

@@ -52,5 +52,9 @@
           .row
             = f.text_field :phone_1, placeholder: "PHONE NUMBER", style: "width: 100%;"
       .row
+        .col-md-12
+          .row.full-width
+            = f.file_field :avatar
+      .row
         .actions
           = f.submit "UPDATE", class: "btn btn-primary pull-right", style: "width: 100%;"
