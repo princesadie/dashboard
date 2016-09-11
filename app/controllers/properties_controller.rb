@@ -14,7 +14,15 @@ class PropertiesController < ApplicationController
   end
 
   def show
-    @property = Property.find(params[:id])
+    @property = current_property
+  end
+
+  def edit
+    @property = current_property
+  end
+
+  def update
+
   end
 
   private
@@ -29,5 +37,9 @@ class PropertiesController < ApplicationController
       :zipcode,
       :main_image
     )
+  end
+
+  def current_property
+    Property.find(params[:id])
   end
 end

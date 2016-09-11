@@ -1,17 +1,15 @@
-.container.form-container
+.container.form-container.edit
   .row
-    .logoContainer
-      = image_tag "logo/simpolLogoGrayscale.png", width: "300"
     .row.welcome
-      h1 Create your property
-      p Please fill out the form below to create your property
+      h1 Edit your property
+      p Please fill out the form below to edit your property
   .row.form
     = form_for @property do |f|
       .row
         h1 PROPERTY
         .col-md-12
           .row.full-width
-            = f.text_field :name, placeholder: "NAME", autofocus: true
+            = f.text_field :name, placeholder: "NAME"
       .row
         .col-md-12
           .row.full-width
@@ -38,8 +36,4 @@
             = f.file_field :main_image
       .row
         .actions
-          = f.submit "CREATE", class: "btn btn-primary", style: "width: 100%;"
-
-javascript:
-  $("#mainNav").remove();
-  $("#control-bar").remove();
+          = f.submit "SUBMIT", class: "btn btn-primary", style: "width: 100%;"
