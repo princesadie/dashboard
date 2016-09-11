@@ -33,6 +33,10 @@
           .row.full-width
             = f.text_field :zipcode, placeholder: "ZIPCODE"
       .row
+        .col-md-12
+          .row.full-width
+            = f.file_field :main_image
+      .row
         .actions
           = f.submit "CREATE", class: "btn btn-primary", style: "width: 100%;"
 
