@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :startups, only: [:index]
   resources :users
   resources :properties
+  resources :companies
 
   root to: 'startups#index'
 end

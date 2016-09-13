@@ -1,61 +1,19 @@
 #user {
   margin-top: 10.5em;
-  #background-banner {
-    height: 500px;
-    overflow: hidden;
-    img {
-      width: 100%;
-      min-height: 500px;
-      position: relative;
-      top: -150px;
-    }
-  }
-  #header {
-    position: relative;
-    top: -300px;
-    text-align: center;
-    h1 {
-      font-size: 32px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      color: #FFFFFF;
-    }
-  }
-  #profile-container {
-    .profile-image {
-      position: relative;
-      height: 160px;
-      width: 160px;
-      top: -120px;
-      left: 160px;
-      border-radius: 50%;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    }
-    img {
-      height: 100%;
-      width: 100%;
-      border-radius: 50%;
-    }
-  }
   #property-header {
-    border-bottom: 1px solid $simpol-dark-gray;
+    margin-left: -15px;
+    margin-bottom: 20px;
+    border-bottom: 3px solid $simpol-main-color;
     h1 {
-      font-size: 32px;
+      font-size: 24px;
       font-weight: 600;
+      color: $simpol-main-color;
+      margin-bottom: 10px;
     }
-  }
-  .profile-container {
-    padding: 0;
-    height: 400px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    .profile-image {
-      height: 250px;
-      overflow: hidden;
-      margin-bottom: 20px;
-      img {
-        height: 100%;
-        width: 100%;
-      }
+    p {
+      font-size: 16px;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
     }
   }
   .notification-container {
@@ -80,5 +38,30 @@
   }
   .no-padding {
     padding: 0px;
+  }
+}
+
+#property-background {
+  padding-top: 18em;
+  height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  #profile-image {
+    position: relative;
+    bottom: 30px;
+    height: 160px;
+    width: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    img {
+      width: 100%;
+    }
+  }
+  .intro-text {
+    text-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   }
 }
