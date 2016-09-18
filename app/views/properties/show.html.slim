@@ -1,7 +1,45 @@
-section#property
-  .row
-    .col-md-12
-      h1
+#control-bar
+  ul.nav.navbar-nav.navbar-right
+    li
+      = link_to "UNITS #{@property.units.count}", property_units_path(@property)
+    li
+      = link_to "EDIT PROPERTY", edit_property_path
+#property-background style=("background-image: url(#{@property.main_image.url})")
+  .container
+    .intro-text
+      .intro-lead-in
         = @property.name
-      h2
+      .intro-heading
         = @property.address
+        br
+        = "#{@property.city}, #{@property.state} #{@property.zipcode}"
+        br
+        = @property.user.company.name
+section#property
+  .container
+    .row
+      .col-md-12#stats-container
+        = image_tag "placeholder/column-graph.jpeg"
+    .row
+      .col-md-12
+        .row
+          - @property.units.sample(4).each do |unit|
+            .col-md-12.no-padding
+              .unit-card
+                .col-md-3.no-padding
+                  .main-image
+                    = image_tag unit.main_image
+                .col-md-2
+                  .row.attributes
+                    span
+                      = pluralize(unit.rooms, "bedroom").upcase
+                  .row.attributes
+                    span
+                      = pluralize(unit.bathrooms, "bathroom").upcase
+                .col-md-4
+                  .row.content
+                    h1 #{unit.name}
+                    .description
+                      span STATUS: #{unit.status}
+                .col-md-3
+                  .control

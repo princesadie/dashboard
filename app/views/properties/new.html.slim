@@ -1,7 +1,9 @@
-.container.form-container
+#control-bar
+  ul.nav.navbar-nav.navbar-right
+    li
+      = link_to "BACK TO USER", user_path(current_user)
+.container.form-container.edit
   .row
-    .logoContainer
-      = image_tag "logo/simpolLogoGrayscale.png", width: "300"
     .row.welcome
       h1 Create your property
       p Please fill out the form below to create your property
@@ -39,7 +41,3 @@
       .row
         .actions
           = f.submit "CREATE", class: "btn btn-primary", style: "width: 100%;"
-
-javascript:
-  $("#mainNav").remove();
-  $("#control-bar").remove();

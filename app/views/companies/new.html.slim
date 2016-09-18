@@ -1,0 +1,39 @@
+.container.form-container.edit
+  .row
+    .row.welcome
+      h1 Create a company
+      p Please fill out the form below to create a company
+  .row.form
+    = form_for @company do |f|
+      .row
+        h1 COMPANY
+        .col-md-12
+          .row.full-width
+            = f.text_field :name, placeholder: "NAME", autofocus: true
+      .row
+        .col-md-12
+          .row.full-width
+            = f.text_field :address, placeholder: "ADDRESS"
+      .row
+        .col-md-12
+          .row.full-width
+            = f.text_field :address_2, placeholder: "ADDRESS 2 (OPTIONAL)"
+      .row
+        .col-md-12
+          .row.full-width
+            = f.text_field :city, placeholder: "CITY"
+      .row
+        .col-md-12
+          .row.full-width
+            = f.select :state, options_for_select(us_states)
+      .row
+        .col-md-12
+          .row.full-width
+            = f.text_field :zipcode, placeholder: "ZIPCODE"
+      .row
+        .col-md-12
+          .row.full-width
+            = f.file_field :logo
+      .row
+        .actions
+          = f.submit "CREATE", class: "btn btn-primary", style: "width: 100%;"

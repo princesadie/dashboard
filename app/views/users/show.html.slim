@@ -1,66 +1,43 @@
 - current_property = @user.properties.sample
-section#user
-  .row
-    .col-md-12
-      #background-banner
-        = image_tag current_property.main_image(:large)
-      #header
-        h1
+#control-bar
+  ul.nav.navbar-nav.navbar-right
+    li
+      = link_to "CREATE PROPERTY", new_property_path
+    li
+      = link_to "EDIT USER", edit_user_registration_path
+- if current_property.present?
+  #property-background style=("background-image: url(#{current_property.main_image.url})")
+    .container
+      .intro-text
+        .intro-lead-in
           = current_property.name
-      #profile-container
-        .profile-image
-          = image_tag @user.avatar.url(:thumb)
+        .intro-heading
+          = current_property.user.company.name
+    .container
+      #profile-image
+        = image_tag current_user.avatar(:medium), class: "img-round"
+section#user
   .container.no-padding
     .row
-      .col-md-12
+      .col-md-12.no-padding-right
         #property-header
           h1 Properties
+          p All of your properties are listed below
     .row
       .col-md-12
         .row.properties-container
           - current_user.properties.each do |property|
-            .property-card
-              .header
-              .img
-                = image_tag property.main_image
-              .content
-                h1
-                  = property.name
-                p NUMBER OF UNITS
-                p DESCRIPTION
-              .footer.text-center
-                = link_to "MANAGE", edit_property_path(property), class: "btn btn-primary"
-  / .container
-  /   .row
-  /     .col-md-3.no-padding
-  /       .profile-container
-  /         .profile-image
-  /           = image_tag @user.avatar.url(:medium)
-  /         .profile-image-content
-  /         .row.text-center
-  /           .intro-text
-  /             = link_to "EDIT PROFILE", edit_user_registration_path, class: "btn btn-primary"
-  /     .col-md-9
-  /       .notification-container
-  /         .notification-header
-  /           h1 Notifications
-  /         .notification-content
-  /           ul
-  /             li Notification One
-  /             li Notification Two
-  /   .row.properties-container
-  /     - current_user.properties.each do |property|
-  /       .property-card
-  /         .header
-  /         .img
-  /           = image_tag property.main_image
-  /         .content
-  /           h1
-  /             = property.name
-  /           p NUMBER OF UNITS
-  /           p DESCRIPTION
-  /         .footer
-  /           = link_to "MANAGE", edit_property_path(property), class: "btn btn-primary"
-  /   .row.text-center
-  /     .intro-text
-  /       = link_to "CREATE PROPERTY", new_property_path, class: "btn btn-primary"
+            .col-md-3.no-padding
+              .property-card
+                .header
+                .img
+                  = image_tag property.main_image
+                .content
+                  h1
+                    = property.name
+                  p
+                    = pluralize(property.units.count, "unit").upcase
+                  p DESCRIPTION
+                .footer.text-center
+                  = link_to "MANAGE", property_path(property), class: "btn btn-primary"
+br

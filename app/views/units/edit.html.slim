@@ -1,0 +1,35 @@
+#control-bar
+  ul.nav.navbar-nav.navbar-right
+    li
+      = link_to "BACK TO PROPERTY", property_units_path(params[:property_id])
+.container.form-container.edit
+  .row
+    .row.welcome
+      h1 Edit your unit
+      p Please fill out the form below to edit your unit
+  .row.form
+    = form_for [@property, @unit] do |f|
+      .row
+        h1 UNIT
+        .col-md-12
+          .row.full-width
+            = f.text_field :name, placeholder: "NAME", autofocus: true
+      .row
+        .col-md-12
+          .row.full-width
+            = f.text_field :size_sf, placeholder: "SIZE SF"
+      .row
+        .col-md-12
+          .row.full-width
+            = f.text_field :monthly_rate, placeholder: "MONTHLY RATE"
+      .row
+        .col-md-12
+          .row.full-width
+            = f.text_field :rooms, placeholder: "ROOM COUNT"
+      .row
+        .col-md-12
+          .row.full-width
+            = f.text_field :bathrooms, placeholder: "BATHROOMS"
+      .row
+        .actions
+          = f.submit "SUBMIT", class: "btn btn-primary", style: "width: 100%;"
