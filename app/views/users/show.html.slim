@@ -1,17 +1,25 @@
 - current_property = @user.properties.sample
+#control-bar
+  ul.nav.navbar-nav.navbar-right
+    li
+      = link_to "CREATE PROPERTY", new_property_path
+    li
+      = link_to "EDIT USER", edit_user_registration_path
 - if current_property.present?
   #property-background style=("background-image: url(#{current_property.main_image.url})")
     .container
       .intro-text
         .intro-lead-in
           = current_property.name
+        .intro-heading
+          = current_property.user.company.name
     .container
       #profile-image
-        = image_tag current_user.avatar(:medium)
+        = image_tag current_user.avatar(:medium), class: "img-round"
 section#user
   .container.no-padding
     .row
-      .col-md-12
+      .col-md-12.no-padding-right
         #property-header
           h1 Properties
           p All of your properties are listed below
@@ -19,14 +27,17 @@ section#user
       .col-md-12
         .row.properties-container
           - current_user.properties.each do |property|
-            .property-card
-              .header
-              .img
-                = image_tag property.main_image
-              .content
-                h1
-                  = property.name
-                p NUMBER OF UNITS
-                p DESCRIPTION
-              .footer.text-center
-                = link_to "MANAGE", edit_property_path(property), class: "btn btn-primary"
+            .col-md-3.no-padding
+              .property-card
+                .header
+                .img
+                  = image_tag property.main_image
+                .content
+                  h1
+                    = property.name
+                  p
+                    = pluralize(property.units.count, "unit").upcase
+                  p DESCRIPTION
+                .footer.text-center
+                  = link_to "MANAGE", property_path(property), class: "btn btn-primary"
+br

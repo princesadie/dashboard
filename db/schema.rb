@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160913002403) do
+ActiveRecord::Schema.define(version: 20160915032507) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -53,6 +53,24 @@ ActiveRecord::Schema.define(version: 20160913002403) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "units", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "size_sf"
+    t.float    "monthly_rate"
+    t.integer  "rooms"
+    t.integer  "bathrooms"
+    t.integer  "property_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "main_image_file_name"
+    t.string   "main_image_content_type"
+    t.integer  "main_image_file_size"
+    t.datetime "main_image_updated_at"
+    t.string   "status"
+  end
+
+  add_index "units", ["property_id"], name: "index_units_on_property_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                             default: "", null: false

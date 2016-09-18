@@ -1,0 +1,50 @@
+#control-bar
+  ul.nav.navbar-nav.navbar-right
+    li
+      = link_to "CREATE UNIT", new_property_unit_path(@property)
+    li
+      = link_to "UNITS #{@property.units.count}", new_property_unit_path(@property)
+    li
+      = link_to "BACK TO PROPERTY", property_path(@property)
+#property-background style=("background-image: url(#{@property.main_image.url})")
+  .container
+    .intro-text
+      .intro-lead-in
+        = @property.name
+      .intro-heading
+        = @property.address
+        br
+        = "#{@property.city}, #{@property.state} #{@property.zipcode}"
+        br
+        = @property.user.company.name
+section#property-units
+  .container
+    .row
+      .col-md-12.no-padding-right
+        #unit-header
+          h1 Units
+          p All of this property's units are listed below
+    .row
+      .col-md-12
+        .row
+          - @property.units.each do |unit|
+            .col-md-12.no-padding
+              .unit-card
+                .col-md-3.no-padding
+                  .main-image
+                    = image_tag unit.main_image
+                .col-md-2
+                  .row.attributes
+                    span
+                      = pluralize(unit.rooms, "bedroom").upcase
+                  .row.attributes
+                    span
+                      = pluralize(unit.bathrooms, "bathroom").upcase
+                .col-md-4
+                  .row.content
+                    h1 #{unit.name}
+                    .description
+                      span STATUS: #{unit.status}
+                .col-md-3
+                  .control
+                    = link_to "EDIT", edit_property_unit_path(@property, unit)

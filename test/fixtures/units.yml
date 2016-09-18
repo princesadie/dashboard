@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  size_sf: 1
+  monthly_rate: 1.5
+  rooms: 1
+  bathrooms: 1
+  property_id: 
+
+two:
+  name: MyString
+  size_sf: 1
+  monthly_rate: 1.5
+  rooms: 1
+  bathrooms: 1
+  property_id: 

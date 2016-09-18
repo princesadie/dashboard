@@ -14,12 +14,6 @@
           = link_to current_user.username.upcase, user_path(current_user)
         li
           = link_to "SIGN OUT", destroy_user_session_path, method: :delete
-  #control-bar
-    ul.nav.navbar-nav.navbar-right
-      li
-        = link_to "CREATE PROPERTY", new_property_path
-      li
-        = link_to "EDIT USER", edit_user_registration_path
 - else
   nav#mainNav.navbar.navbar-default.navbar-custom.navbar-fixed-top
     .navbar-header.page-scroll
